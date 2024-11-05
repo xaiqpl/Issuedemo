@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="10/25/2024 15:24:52" ReportInfo.Modified="11/05/2024 19:21:21" ReportInfo.CreatorVersion="2022.1.0.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <BusinessObjectDataSource Name="TestInfo" ReferenceName="TestInfo" DataType="System.Int32[]" Enabled="true">
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="Age" DataType="System.Int32"/>
+    </BusinessObjectDataSource>
+    <Parameter Name="MyParam" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Microsoft Sans Serif, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8">
+      <TextObject Name="Text1" Left="198.45" Top="9.45" Width="236.25" Height="18.9" Text="[MyParam]" HorzAlign="Center" VertAlign="Center" Font="Microsoft Sans Serif, 10pt, style=Bold"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="41" Width="718.2" Height="28.35"/>
+    <DataBand Name="Data1" Top="72.55" Width="718.2" Height="103.95">
+      <TableObject Name="Table1" Left="160.65" Top="9.45" Width="328.86" Height="35.9">
+        <TableColumn Name="Column1" Width="164.43"/>
+        <TableColumn Name="Column2" Width="164.43"/>
+        <TableRow Name="Row1" Height="17.95">
+          <TableCell Name="Cell1" Border.Lines="All" Text="Name" HorzAlign="Center" VertAlign="Center" Font="Microsoft Sans Serif, 9pt"/>
+          <TableCell Name="Cell2" Border.Lines="All" Text="Age" HorzAlign="Center" VertAlign="Center" Font="Microsoft Sans Serif, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row2" Height="17.95">
+          <TableCell Name="Cell6" Border.Lines="All" Text="[TestInfo.Name]" HorzAlign="Center" VertAlign="Center" Font="Microsoft Sans Serif, 9pt"/>
+          <TableCell Name="Cell7" Border.Lines="All" Text="[TestInfo.Age]" HorzAlign="Center" VertAlign="Center" Font="Microsoft Sans Serif, 9pt"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+    <DataBand Name="Data2" Top="179.7" Width="718.2" Height="22.68" DataSource="TestInfo">
+      <TextObject Name="Cell11" Left="84.14" Width="171.32" Height="22.68" Text="[TestInfo.Name]" Padding="2, 2, 2, 2" HorzAlign="Center" VertAlign="Center" Font="Microsoft Sans Serif, 9pt"/>
+      <TextObject Name="Cell12" Left="264.91" Width="166.86" Height="22.68" Text="[TestInfo.Age]" Padding="2, 2, 2, 2" HorzAlign="Center" VertAlign="Center" Font="Microsoft Sans Serif, 9pt"/>
+      <TextObject Name="Text2" Left="450.6" Width="171.32" Height="22.68" Text="[TestInfo.Name]" Padding="2, 2, 2, 2" HorzAlign="Center" VertAlign="Center" Font="Microsoft Sans Serif, 9pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="205.58" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>
